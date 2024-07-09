@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Main from "./pages/Main";
-import Results from "./pages/Results";
 import GeneralQuiz from "./pages/GeneralQuiz";
 import TvQuiz from "./pages/TvQuiz";
 import HistoryQuiz from "./pages/HistoryQuiz";
@@ -22,7 +21,6 @@ function App() {
         <Route path="/geography" element={<GeographyQuiz />}></Route>
         <Route path="/sports" element={<SportsQuiz />}></Route>
         <Route path="/music" element={<MusicQuiz />}></Route>
-        <Route path="/results" element={<Results />}></Route>
       </Routes>
     </BrowserRouter>
     </>
