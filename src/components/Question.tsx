@@ -25,19 +25,19 @@ const Question = (props:PropsType) => {
   return (
     <div className="-mt-5">
       <div className="w-full flex-wrap flex justify-around mt-10 mb-4">
-        <p className="text-2xl sm:text-xl font-bold">
+        <div className="w-1/3 xs:text-lg md:text-2xl lg:text-2xl sm:text-xl font-bold">
           Score:{" "}
           <span className={`bg-${props.color} py-1 px-3 rounded-lg`}>{props.score}</span>
-        </p>
-        <p className="text-2xl sm:text-xl font-bold">
+        </div>
+        <div className="w-1/3 xs:text-lg md:text-2xl lg:text-2xl sm:text-xl font-bold">
           {props.questionNum} / {props.totalQuestions}
-        </p>
+        </div>
       </div>
-      <div className="w-full flex justify-center px-3 pb-5 pt-8 font-bold text-[#0c3234] text-3xl sm:text-2xl text-center">
+      <div className="w-full flex justify-center px-3 pb-5 xs:pt-4 sm:pt-6 md:pt-8 lg:pt-8 font-bold text-[#0c3234] xs:text-xl md:text-3xl lg:text-3xl sm:text-2xl text-center">
         {parse(props.question)}
       </div>
       <hr className={`w-[87%] h-[2px] bg-${props.color} mx-auto`}></hr>
-      <div className="w-full h-[55%] flex flex-wrap justify-center px-10 pt-6 mb-8 gap-5">
+      <div className="w-full h-[55%] flex flex-wrap justify-center px-10 pt-6 mb-8 xs:gap-2 sm:gap-3 md:gap-5 lg:gap-5">
         {props.answers?.map((answer:string, index:number) => (
           <div
             onClick={() => {
@@ -45,23 +45,24 @@ const Question = (props:PropsType) => {
               props.setSelected(true);
             }}
             key={index}
+            className="flex flex-wrap justify-center items-start xs:w-full xs:h-full sm:w-full sm:h-full md:w-[48%] md:h-[100px] lg:w-[48%] lg:h-[100px] xl:w-[48%] xl:h-[100px]"
           >
             <button
               disabled={props.userAnswer ? true : false}
               value={answer}
               onClick={props.callback}
               className={
-                answer === props.correct && answer === active && props.selected ? "flex flex-wrap justify-center items-center  md:w-[400px] md:h-[100px] sm:w-[300px] p-3 bg-emerald-600 border-emerald-800 border-2 rounded-xl text-2xl sm:text-xl font-medium" :
-                answer !== props.correct && answer === active && props.selected ? "flex flex-wrap justify-center items-center  md:w-[400px] md:h-[100px] sm:w-[300px] p-3 bg-rose-600 border-rose-800 border-2 rounded-xl text-2xl sm:text-xl font-medium" :
-                answer === props.correct && answer !== active && props.selected ? "flex flex-wrap justify-center items-center  md:w-[400px] md:h-[100px] sm:w-[300px] p-3 bg-emerald-600 border-emerald-800 border-2 rounded-xl text-2xl sm:text-xl font-medium" : 
-                "border-stone-200 border-2 rounded-xl flex flex-wrap md:w-[400px] md:h-[100px] sm:w-[300px] p-3 items-center justify-center text-2xl sm:text-xl font-medium transition-all hover:bg-stone-200 disabled:hover:bg-inherit"
+                answer === props.correct && answer === active && props.selected ? "flex flex-wrap justify-center items-center bg-emerald-600 border-emerald-800 border-2 rounded-xl font-medium p-3 w-full h-full xs:text-lg sm:text-xl md:text-xl lg:text-2xl" :
+                answer !== props.correct && answer === active && props.selected ? "flex flex-wrap justify-center items-center bg-rose-600 border-rose-800 border-2 rounded-xl font-medium p-3 w-full h-full xs:text-lg sm:text-xl md:text-xl lg:text-2xl" :
+                answer === props.correct && answer !== active && props.selected ? "flex flex-wrap justify-center items-center bg-emerald-600 border-emerald-800 border-2 rounded-xl font-medium p-3 w-full h-full xs:text-lg sm:text-xl md:text-xl lg:text-2xl" : 
+                "flex flex-wrap justify-center items-center hover:bg-stone-200 border-stone-200 border-2 rounded-xl font-medium p-3 transition-all disabled:hover:bg-inherit w-full h-full xs:text-lg sm:text-xl md:text-xl lg:text-2xl"
               }
             >
               <div
                 className={
-                  answer === props.correct && answer === active && props.selected ? "w-full h-full flex flex-wrap justify-center items-center bg-emerald-600 text-2xl sm:text-xl font-medium" :
-                  answer !== props.correct && answer === active && props.selected ? "w-full h-full flex flex-wrap justify-center items-center bg-rose-600 text-2xl sm:text-xl font-medium" :
-                  answer === props.correct && answer !== active && props.selected ? "w-full h-full flex flex-wrap justify-center items-center bg-emerald-600 text-2xl sm:text-xl font-medium" : ""
+                  answer === props.correct && answer === active && props.selected ? "w-full h-full flex flex-wrap justify-center items-center bg-emerald-600 xs:text-lg sm:text-xl md:text-xl lg:text-2xl font-medium" :
+                  answer !== props.correct && answer === active && props.selected ? "w-full h-full flex flex-wrap justify-center items-center bg-rose-600 xs:text-lg sm:text-xl md:text-xl lg:text-2xl font-medium" :
+                  answer === props.correct && answer !== active && props.selected ? "w-full h-full flex flex-wrap justify-center items-center bg-emerald-600 xs:text-lg sm:text-xl md:text-xl lg:text-2xl font-medium" : ""
                 }
               >
                 <span>{parse(answer)}</span>
