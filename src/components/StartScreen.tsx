@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 import { DIFFICULTY } from "../api/api";
 
-const StartScreen = ({ categoryName, handleCheck, setChosenDifficulty, setNumQuestions, color, setFormSubmitted }:{
+const StartScreen = ({ categoryName, setChosenDifficulty, setNumQuestions, color, setFormSubmitted }:{
   categoryName: string;
-  handleCheck: () => void;
   setChosenDifficulty: (arg0:string) => void;
   setNumQuestions: (arg0:number) => void;
   color: string;
@@ -64,12 +63,6 @@ const StartScreen = ({ categoryName, handleCheck, setChosenDifficulty, setNumQue
                 onChange={(e) => setChosenDifficulty(e.target.value)}
               />
               <label htmlFor="hard" className="xs:text-base sm:text-base md:text-lg lg:text-xl ml-1">Hard</label>
-            </div>
-            <div className="w-full flex justify-center mt-8 xs:text-base sm:text-lg md:text-lg lg:text-xl">
-              <label htmlFor="timer">
-                <input type="checkbox" name="timer" id="timer" onChange={handleCheck} className="mr-2" />
-                Include Timer?
-              </label>
             </div>
             <div className="w-full flex flex-wrap justify-center gap-2 mt-8">
               <Link to="/"><button className={`bg-${color} opacity-90 hover:opacity-80 hover:cursor-pointer transition-all uppercase py-3 xs:px-5 sm:px-5 md:px-10 lg:px-10 font-medium tracking-wide xs:text-base sm:text-lg md:text-lg lg:text-lg rounded-3xl mr-3`}>Back</button></Link>

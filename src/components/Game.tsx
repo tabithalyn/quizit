@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { BounceLoader } from "react-spinners";
 import { AnswerObject, fetchQuestions, QuestionState } from "../api/api";
-import Answers from "./Answers";
 import Question from "./Question";
 import StartScreen from "./StartScreen";
 import Result from "./Result";
@@ -24,8 +23,8 @@ const Game = ({category, color, categoryName}:GameType) => {
   const [selected, setSelected] = useState<boolean>(false);
   const [numQuestions, setNumQuestions] = useState<number>(5);
   const [difficulty, setDifficulty] = useState<string>("");
-  const [checked, setChecked] = useState<boolean>(false);
   const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
+  const [showResults, setShowResults] = useState<boolean>(false);
 
   useEffect(() => {
     const startGame = async () => {
@@ -82,11 +81,10 @@ const Game = ({category, color, categoryName}:GameType) => {
       <div className="flex flex-wrap justify-center items-center w-[%90] h-[90%] z-50">
         <BounceLoader />
       </div>
-    ) : gameOver ? (
+    ) : gameOver && !showResults ? (
       <div className="w-full flex flex-wrap justify-center">
         <StartScreen
           categoryName={categoryName}
-          handleCheck={() => setChecked(!checked)}
           setChosenDifficulty={setDifficulty}
           setNumQuestions={setNumQuestions}
           color={color}
@@ -96,7 +94,7 @@ const Game = ({category, color, categoryName}:GameType) => {
     ) : (
       <>
         {
-          questions?.length > 0 && !gameOver ? (
+          questions?.length > 0 && !gameOver && !showResults ? (
             <Question
               question={questions[number]?.question}
               answers={questions[number]?.answers}
@@ -111,31 +109,37 @@ const Game = ({category, color, categoryName}:GameType) => {
               selectedCategory={category}
               selectedDifficulty={difficulty}
               score={score}
-              checked={checked}
-              gameOver={gameOver}
-              formSubmitted={formSubmitted}
             />
           ) : null
         }
         {
-          !gameOver && !loading && userAnswers.length === number + 1 && number !== numQuestions - 1 ? (
+          userAnswers.length === number + 1 && !showResults ? (
             <div className="flex flex-wrap justify-around p-5 items-center -mt-5">
-              <Link to="/"><button className={`bg-${color} opacity-70 hover:opacity-90 hover:cursor-pointer transition-all uppercase py-3 px-10 font-medium tracking-wide text-lg rounded-3xl xs:text-sm xs:px-7 sm:px-8 md:px-9 lg:px-10 xl:px-10`}>Quit <i className="fa-solid fa-person-running"></i></button></Link>
-              <button className={`bg-${color} opacity-90 hover:opacity-80 hover:cursor-pointer transition-all uppercase py-3 px-10 font-medium tracking-wide text-lg rounded-3xl xs:text-sm xs:px-7 sm:px-8 md:px-9 lg:px-10 xl:px-10`} type="submit" onClick={nextQuestion}>Next <i className="fa-solid fa-right-long"></i></button>
+              {number === numQuestions - 1 ? (
+                <button className={`bg-${color} opacity-90 hover:opacity-80 hover:cursor-pointer transition-all uppercase py-3 px-10 font-medium tracking-wide text-lg rounded-3xl xs:text-sm xs:px-7 sm:px-8 md:px-9 lg:px-10 xl:px-10`}  onClick={() => setShowResults(true)}>
+                  Finish <i className="fa-solid fa-flag-checkered"></i>
+                </button>
+              ) : (
+                <>
+                <Link to="/">
+                  <button className={`bg-${color} opacity-70 hover:opacity-90 hover:cursor-pointer transition-all uppercase py-3 px-10 font-medium tracking-wide text-lg rounded-3xl xs:text-sm xs:px-7 sm:px-8 md:px-9 lg:px-10 xl:px-10`}>
+                    Quit <i className="fa-solid fa-person-running"></i>
+                  </button>
+                </Link>
+                <button className={`bg-${color} opacity-90 hover:opacity-80 hover:cursor-pointer transition-all uppercase py-3 px-10 font-medium tracking-wide text-lg rounded-3xl xs:text-sm xs:px-7 sm:px-8 md:px-9 lg:px-10 xl:px-10`} type="submit" onClick={nextQuestion}>
+                  Next <i className="fa-solid fa-right-long"></i>
+                </button>
+                </>
+              )}
             </div>
-          ) : !gameOver && userAnswers.length === numQuestions ? (
-            <>
-            <Answers />
+          ) : showResults ? (
             <Result
               score={score}
               numQuestions={numQuestions}
               setGameOver={setGameOver}
               color={color}
-              checked={checked}
-              gameOver={gameOver}
-              formSubmitted={formSubmitted}
+              setShowResults={setShowResults}
             />
-            </>
           ) : null
         }
       </>

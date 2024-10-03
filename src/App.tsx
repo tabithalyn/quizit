@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Main from "./pages/Main";
 import GeneralQuiz from "./pages/GeneralQuiz";
 import TvQuiz from "./pages/TvQuiz";
@@ -12,7 +12,6 @@ function App() {
 
   return (
     <>
-    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Main />}></Route>
         <Route path="/general" element={<GeneralQuiz />}></Route>
@@ -22,7 +21,6 @@ function App() {
         <Route path="/sports" element={<SportsQuiz />}></Route>
         <Route path="/music" element={<MusicQuiz />}></Route>
       </Routes>
-    </BrowserRouter>
     </>
   );
 }
