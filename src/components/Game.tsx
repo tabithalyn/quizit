@@ -1,6 +1,5 @@
 // import "../styles/Game.css";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { BounceLoader } from "react-spinners";
 import { AnswerObject, fetchQuestions, QuestionState } from "../api/api";
 import Question from "./Question";
@@ -120,16 +119,9 @@ const Game = ({category, color, categoryName}:GameType) => {
                   Finish <i className="fa-solid fa-flag-checkered"></i>
                 </button>
               ) : (
-                <>
-                <Link to="/">
-                  <button className={`bg-${color} opacity-70 hover:opacity-90 hover:cursor-pointer transition-all uppercase py-3 px-10 font-medium tracking-wide text-lg rounded-3xl xs:text-sm xs:px-7 sm:px-8 md:px-9 lg:px-10 xl:px-10`}>
-                    Quit <i className="fa-solid fa-person-running"></i>
-                  </button>
-                </Link>
                 <button className={`bg-${color} opacity-90 hover:opacity-80 hover:cursor-pointer transition-all uppercase py-3 px-10 font-medium tracking-wide text-lg rounded-3xl xs:text-sm xs:px-7 sm:px-8 md:px-9 lg:px-10 xl:px-10`} type="submit" onClick={nextQuestion}>
                   Next <i className="fa-solid fa-right-long"></i>
                 </button>
-                </>
               )}
             </div>
           ) : showResults ? (
@@ -139,6 +131,7 @@ const Game = ({category, color, categoryName}:GameType) => {
               setGameOver={setGameOver}
               color={color}
               setShowResults={setShowResults}
+              setTotalQuestions={setNumQuestions}
             />
           ) : null
         }

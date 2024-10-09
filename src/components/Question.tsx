@@ -1,6 +1,7 @@
 import { useState } from "react";
 import parse from "html-react-parser";
 import { AnswerObject } from "../api/api";
+import { Link } from "react-router-dom";
 
 type PropsType = {
   question: string;
@@ -21,16 +22,24 @@ type PropsType = {
 
 const Question = (props:PropsType) => {
   const [active, setActive] = useState("");
+  console.log(props.color);
 
   return (
     <div className="-mt-5">
-      <div className="w-full flex-wrap flex justify-around mt-10 mb-4">
-        <div className="w-1/3 xs:text-lg md:text-2xl lg:text-2xl sm:text-xl font-bold">
-          Score:{" "}
-          <span className={`bg-${props.color} py-1 px-3 rounded-lg`}>{props.score}</span>
+      <div className="w-full flex-wrap flex justify-center mt-10 mb-4 px-10">
+        <div className="w-1/3 flex justify-center">
+          <Link to="/">
+            <button className={`bg-${props.color} hover:opacity-90 hover:cursor-pointer transition-all uppercase py-3 px-10 font-medium tracking-wide text-lg rounded-2xl xs:text-sm xs:px-7 sm:px-8 md:px-9 lg:px-10 xl:px-10`}>
+              <i className="fa-solid fa-reply"></i> Quit
+            </button>
+          </Link>
         </div>
-        <div className="w-1/3 xs:text-lg md:text-2xl lg:text-2xl sm:text-xl font-bold">
+        <div className={`w-1/3 xs:text-lg md:text-2xl lg:text-2xl sm:text-xl font-bold flex justify-center items-center border-x-2 border-x-[#8E44AD]`}>
           {props.questionNum} / {props.totalQuestions}
+        </div>
+        <div className="w-1/3 xs:text-lg md:text-2xl lg:text-2xl sm:text-xl font-bold flex flex-wrap justify-center items-center gap-2">
+          Score:
+          <span className={`bg-${props.color} py-1 px-3 rounded-lg`}>{props.score}</span>
         </div>
       </div>
       <div className="w-full flex justify-center px-3 pb-5 xs:pt-4 sm:pt-6 md:pt-8 lg:pt-8 font-bold text-[#0c3234] xs:text-xl md:text-3xl lg:text-3xl sm:text-2xl text-center">

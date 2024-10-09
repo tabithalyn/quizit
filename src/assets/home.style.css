@@ -1,0 +1,285 @@
+/* BLUE */
+.blue{
+  background-image: linear-gradient(120deg, #64e2e9 0%, #44C5CB 100%);
+  border-radius: 42% 38% 60% 30% / 45% 55% 55% 55%;
+  width: 30%; height: 35%;
+  transform-style: preserve-3d;
+  outline: 1px solid transparent;
+  border: 1px solid black;
+}
+.blue:hover {
+  animation: morph 3s linear infinite; 
+  will-change: border-radius;
+}
+.blue:hover .blue:before,
+.blue:after{
+  content: '';
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  left: 0; top: 0;
+  border-radius: 42% 38% 60% 30% / 45% 55% 55% 55%;
+  border: 1px solid black;
+  box-shadow: 5px 5px 89px #44C5CB36;
+  will-change: border-radius, transform, opacity;
+  animation-delay: 200ms;
+  background-image: linear-gradient(120deg, #44C5CB8c 0%, #44C5CBe3 100%);
+}
+
+.blue:before{
+  animation: morph 3s linear infinite;
+  opacity: .21;
+  animation-duration: 1.5s;
+}
+
+.blue:hover .blue:after{
+  animation: morph 3s linear infinite;
+  animation-delay: 400ms;
+  opacity: .89;
+  content: "";
+  line-height: 120px;
+  text-indent: -21px;
+}
+
+/* RED */
+.red{
+  background-image: linear-gradient(120deg, #fe6a7b 0%, #F53D52 100%);
+  border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  width: 30%; height: 35%;
+  transform-style: preserve-3d;
+  outline: 1px solid transparent;
+  border: 1px solid black;
+}
+.red:hover {
+  animation: morph 3s linear infinite; 
+  will-change: border-radius;
+}
+.red:hover .red:before,
+.red:after{
+  content: '';
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  left: 0; top: 0;
+  border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  border: 1px solid black;
+  box-shadow: 5px 5px 89px #F53D5236;
+  will-change: border-radius, transform, opacity;
+  animation-delay: 200ms;
+  background-image: linear-gradient(120deg, #F53D528c 0%, #F53D52e3 100%);
+}
+
+.red:before{
+  animation: morph 3s linear infinite;
+  opacity: .21;
+  animation-duration: 1.5s;
+}
+
+.red:hover .red:after{
+  animation: morph 3s linear infinite;
+  animation-delay: 400ms;
+  opacity: .89;
+  content: "";
+  line-height: 120px;
+  text-indent: -21px;
+}
+
+/* ORANGE */
+.orange{
+  background-image: linear-gradient(120deg, #faa739 0%, #FF9200 100%);
+  border-radius: 72% 38% 80% 50% / 75% 55% 75% 54%;
+  width: 30%; height: 35%;
+  transform-style: preserve-3d;
+  outline: 1px solid transparent;
+  border: 1px solid black;
+}
+.orange:hover {
+  animation: morph 3s linear infinite; 
+  will-change: border-radius;
+}
+.orange:hover .orange:before,
+.orange:after{
+  content: '';
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  left: 0; top: 0;
+  border-radius: 72% 38% 80% 50% / 75% 55% 75% 54%;
+  border: 1px solid black;
+  box-shadow: 5px 5px 89px #FF920036;
+  will-change: border-radius, transform, opacity;
+  animation-delay: 200ms;
+  background-image: linear-gradient(120deg, #FF92008c 0%, #FF9200e3 100%);
+}
+
+.orange:before{
+  animation: morph 3s linear infinite;
+  opacity: .21;
+  animation-duration: 1.5s;
+}
+
+.orange:hover .orange:after{
+  animation: morph 3s linear infinite;
+  animation-delay: 400ms;
+  opacity: .89;
+  content: "";
+  line-height: 120px;
+  text-indent: -21px;
+}
+
+/* PURPLE */
+.purple{
+  background-image: linear-gradient(120deg, #8E44AD 0%, #b400ff 100%);
+  border-radius: 82% 48% 70% 60% / 65% 85% 55% 75%;
+  width: 30%; height: 35%;
+  transform-style: preserve-3d;
+  outline: 1px solid transparent;
+  border: 1px solid black;
+}
+.purple:hover {
+  animation: morph 3s linear infinite; 
+  will-change: border-radius;
+}
+.purple:hover .purple:before,
+.purple:after{
+  content: '';
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  left: 0; top: 0;
+  border-radius: 82% 48% 70% 60% / 65% 85% 55% 75%;
+  border: 1px solid black;
+  box-shadow: 5px 5px 89px #8E44AD36;
+  will-change: border-radius, transform, opacity;
+  animation-delay: 200ms;
+  background-image: linear-gradient(120deg, #8E44AD8c 0%, #8E44ADe3 100%);
+}
+
+.purple:before{
+  animation: morph 3s linear infinite;
+  opacity: .21;
+  animation-duration: 1.5s;
+}
+
+.purple:hover .purple:after{
+  animation: morph 3s linear infinite;
+  animation-delay: 400ms;
+  opacity: .89;
+  content: "";
+  line-height: 120px;
+  text-indent: -21px;
+}
+
+/* GREEN */
+.green{
+  background-image: linear-gradient(120deg, #2abfa1 0%, #16A085 100%);
+  border-radius: 42% 48% 70% 60% / 55% 55% 75% 65%;
+  width: 30%; height: 35%;
+  transform-style: preserve-3d;
+  outline: 1px solid transparent;
+  border: 1px solid black;
+}
+.green:hover {
+  animation: morph 3s linear infinite; 
+  will-change: border-radius;
+}
+.green:hover .green:before,
+.green:after{
+  content: '';
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  left: 0; top: 0;
+  border-radius: 42% 48% 70% 60% / 55% 55% 75% 65%;
+  border: 1px solid black;
+  box-shadow: 5px 5px 89px #16A08536;
+  will-change: border-radius, transform, opacity;
+  animation-delay: 200ms;
+  background-image: linear-gradient(120deg, #16A0858c 0%, #16A085e3 100%);
+}
+
+.green:before{
+  animation: morph 3s linear infinite;
+  opacity: .21;
+  animation-duration: 1.5s;
+}
+
+.green:hover .green:after{
+  animation: morph 3s linear infinite;
+  animation-delay: 400ms;
+  opacity: .89;
+  content: "";
+  line-height: 120px;
+  text-indent: -21px;
+}
+
+/* YELLOW */
+.yellow{
+  background-image: linear-gradient(120deg, #fdee62 0%, #f2dd1c 100%);
+  border-radius: 52% 88% 80% 50% / 85% 55% 75% 55%;
+  width: 30%; height: 35%;
+  transform-style: preserve-3d;
+  outline: 1px solid transparent;
+  border: 1px solid black;
+}
+.yellow:hover {
+  animation: morph 3s linear infinite; 
+  will-change: border-radius;
+}
+.yellow:hover .yellow:before,
+.yellow:after{
+  content: '';
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  left: 0; top: 0;
+  border-radius: 52% 88% 80% 50% / 85% 55% 75% 55%;
+  border: 1px solid black;
+  box-shadow: 5px 5px 89px #f2dd1c36;
+  will-change: border-radius, transform, opacity;
+  animation-delay: 200ms;
+  background-image: linear-gradient(120deg, #f2dd1c8c 0%, #f2dd1ce3 100%);
+}
+
+.yellow:before{
+  animation: morph 3s linear infinite;
+  opacity: .21;
+  animation-duration: 1.5s;
+}
+
+.yellow:hover .yellow:after{
+  animation: morph 3s linear infinite;
+  animation-delay: 400ms;
+  opacity: .89;
+  content: "";
+  line-height: 120px;
+  text-indent: -21px;
+}
+
+@keyframes morph{
+  0%,100%{
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  }
+  34%{
+    border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
+  }
+  50%{
+    opacity: .89;
+  }
+  67%{
+    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+  }
+}
+
+@keyframes fadeIn{
+  100%{
+    transform: scale(1.03);
+    opacity: 0;
+  }
+}

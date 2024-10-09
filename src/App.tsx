@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router-dom";
-import Main from "./pages/Main";
 import GeneralQuiz from "./pages/GeneralQuiz";
 import TvQuiz from "./pages/TvQuiz";
 import HistoryQuiz from "./pages/HistoryQuiz";
 import GeographyQuiz from "./pages/GeographyQuiz";
 import SportsQuiz from "./pages/SportsQuiz";
 import MusicQuiz from "./pages/MusicQuiz";
+import Home from "./pages/Home";
 
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Main />}></Route>
+        <Route path="/" element={<Home />}></Route>
         <Route path="/general" element={<GeneralQuiz />}></Route>
         <Route path="/tv" element={<TvQuiz />}></Route>
         <Route path="/history" element={<HistoryQuiz />}></Route>

@@ -7,6 +7,7 @@ type ResultProps = {
   setGameOver: (arg0:boolean) => void;
   setShowResults: (arg0:boolean) => void;
   color: string;
+  setTotalQuestions: (arg0:number) => void;
 }
 
 const results = (props:ResultProps) => {
@@ -17,6 +18,11 @@ const results = (props:ResultProps) => {
         <p className="bg-[#f3f3f3] p-1 text-center font-bold w-full flex flex-wrap justify-center items-center col-span-4 row-span-3 text-[2rem]">
           <span className="mr-3">Your Final Score:</span>
           <span className={`bg-${props.color} py-1 px-3 rounded-lg`}>{props.score}</span> / {props.numQuestions}
+          <span className="w-full">
+            {
+              (props.score / props.numQuestions) * 100
+            }%
+          </span>
         </p>
         <Answers props={{
           color: props.color
@@ -27,6 +33,7 @@ const results = (props:ResultProps) => {
             onClick={() => {
               props.setGameOver(true);
               props.setShowResults(false);
+              props.setTotalQuestions(5);
             }}
           >
             New Game <i className="fa-solid fa-arrow-rotate-right"></i>
